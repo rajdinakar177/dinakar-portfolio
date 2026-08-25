@@ -30,7 +30,7 @@ export const siteConfig = {
    * their own public embed, not a custom API integration, so no OAuth or
    * Partner Program access is required.
    */
-  linkedinVanityName: "www.linkedin.com/in/kothulapuram-dinakar-raju-77025",
+  linkedinVanityName: "https://www.linkedin.com/in/kothulapuram-dinakar-raju-77025d/",
 } as const;
 
 export const navLinks: NavLink[] = [
@@ -42,7 +42,7 @@ export const navLinks: NavLink[] = [
 
 export const socialLinks: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/rajdinakar177", icon: "github" },
-  { label: "LinkedIn", href: "www.linkedin.com/in/kothulapuram-dinakar-raju-77025d", icon: "linkedin" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/kothulapuram-dinakar-raju-77025d/", icon: "linkedin" },
   { label: "Email", href: "mailto:rajdinakar177@gmail.com", icon: "mail" },
 ];
 
