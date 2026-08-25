@@ -18,7 +18,7 @@ export type SocialLink = {
 };
 
 export const siteConfig = {
-  name: "Dinakar raju",
+  name: "DINAKAR RAJU KOTHULAPUR",
   title: "Full Stack Developer",
   description:
     "Full stack developer building modern, scalable web applications with React, Next.js, Node.js and MongoDB.",
