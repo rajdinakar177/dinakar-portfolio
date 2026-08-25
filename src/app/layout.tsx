@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/site";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 import { Navbar } from "@/components/shared/navbar";
 import { Footer } from "@/components/shared/footer";
-
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -49,9 +49,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <ThemeProvider>
           <Navbar />
-          <main className="flex flex-1 flex-col">{children}</main>
+
+          <main className="flex flex-1 flex-col">
+            {children}
+          </main>
+
           <Footer />
         </ThemeProvider>
+
+        <Analytics />
       </body>
     </html>
   );
