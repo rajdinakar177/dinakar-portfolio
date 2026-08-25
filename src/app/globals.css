@@ -1,0 +1,226 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------- */
+/* Design tokens                                                          */
+/* ---------------------------------------------------------------------- */
+
+:root {
+  --radius: 0.75rem;
+
+  /* Light mode */
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.16 0.01 264);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.01 264);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.01 264);
+
+  /* Single professional accent — restrained indigo/blue */
+  --primary: oklch(0.5 0.18 260);
+  --primary-foreground: oklch(0.98 0.01 260);
+
+  --secondary: oklch(0.96 0.003 264);
+  --secondary-foreground: oklch(0.22 0.01 264);
+
+  --muted: oklch(0.96 0.003 264);
+  --muted-foreground: oklch(0.48 0.012 264);
+
+  --accent: oklch(0.95 0.02 260);
+  --accent-foreground: oklch(0.3 0.05 260);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0.01 27);
+
+  --border: oklch(0.9 0.004 264);
+  --input: oklch(0.9 0.004 264);
+  --ring: oklch(0.5 0.18 260 / 50%);
+
+  --surface: oklch(0.975 0.003 264);
+  --muted-2: oklch(0.55 0.01 264);
+}
+
+/* Shared brand accents — same in both themes, used sparingly */
+:root {
+  --secondary-accent: #8b5cf6;
+  --success: #22c55e;
+  --primary-hover: #2563eb;
+}
+
+.dark {
+  /* Exact Module 3 dark palette */
+  --background: #09090b;
+  --foreground: #fafafa;
+
+  --card: #18181b;
+  --card-foreground: #fafafa;
+
+  --popover: #18181b;
+  --popover-foreground: #fafafa;
+
+  --primary: #3b82f6;
+  --primary-foreground: #fafafa;
+
+  --secondary: #18181b;
+  --secondary-foreground: #fafafa;
+
+  --muted: #18181b;
+  --muted-foreground: #a1a1aa;
+
+  --accent: #18181b;
+  --accent-foreground: #a1a1aa;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #3b82f6;
+
+  --surface: #111113;
+  --muted-2: #71717a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-surface: var(--surface);
+  --color-muted-2: var(--muted-2);
+  --color-secondary-accent: var(--secondary-accent);
+  --color-success: var(--success);
+  --color-primary-hover: var(--primary-hover);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --container-content: 72rem; /* 1152px — shared max content width */
+}
+
+/* ---------------------------------------------------------------------- */
+/* Base                                                                    */
+/* ---------------------------------------------------------------------- */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Typography scale — shared hierarchy for every section                  */
+/* ---------------------------------------------------------------------- */
+
+@layer components {
+  /* Large hero-level heading */
+  .text-hero {
+    @apply text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl;
+  }
+
+  /* Section-level heading ("About", "Projects", etc.) */
+  .text-section-heading {
+    @apply text-2xl font-semibold tracking-tight text-balance sm:text-3xl lg:text-4xl;
+  }
+
+  /* Supporting copy directly under a section heading */
+  .text-section-description {
+    @apply text-base text-muted-foreground text-pretty sm:text-lg;
+  }
+
+  /* Emphasized standalone copy, smaller than hero */
+  .text-large {
+    @apply text-lg font-medium text-pretty sm:text-xl;
+  }
+
+  /* Default paragraph copy */
+  .text-body {
+    @apply text-sm text-foreground/90 sm:text-base;
+  }
+
+  /* Small supporting copy (captions, metadata) */
+  .text-small {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Uppercase eyebrow / overline label */
+  .text-label {
+    @apply text-xs font-medium tracking-widest text-muted-foreground uppercase;
+  }
+
+  /* Button label styling baseline (variants layer on top) */
+  .text-button {
+    @apply text-sm font-medium;
+  }
+
+  /* Navigation link baseline */
+  .text-nav-link {
+    @apply text-sm font-medium text-muted-foreground transition-colors hover:text-foreground;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Subtle, reusable surface utilities                                     */
+/* ---------------------------------------------------------------------- */
+
+@layer utilities {
+  /* Restrained blue/violet glow — used sparingly behind hero-like areas */
+  .bg-glow {
+    background-image: radial-gradient(
+        50% 45% at 30% 0%,
+        color-mix(in oklch, var(--primary) 18%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        40% 40% at 80% 10%,
+        color-mix(in oklch, var(--secondary-accent) 12%, transparent),
+        transparent 70%
+      );
+  }
+
+  /* Subtle abstract grid, faded toward the edges via mask */
+  .bg-grid {
+    background-image: linear-gradient(
+        to right,
+        var(--border) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    opacity: 0.4;
+  }
+}
