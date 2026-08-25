@@ -187,25 +187,27 @@ export function Contact() {
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="projectType">Project type</Label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={form.projectType}
-                    onChange={(e) => updateField("projectType", e.target.value)}
-                    disabled={isSubmitting}
-                    className={cn(
-                      "border-input flex h-9 w-full rounded-md border bg-transparent px-3 text-sm shadow-xs outline-none",
-                      "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
-                      "disabled:cursor-not-allowed disabled:opacity-50",
-                    )}
-                  >
-                    <option value="">Select one (optional)</option>
-                    {projectTypeOptions.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
+                 <select
+  id="projectType"
+  name="projectType"
+  value={form.projectType}
+  onChange={(e) => updateField("projectType", e.target.value)}
+  disabled={isSubmitting}
+  className={cn(
+    "border-input flex h-9 w-full rounded-md border bg-transparent px-3 text-sm shadow-xs outline-none",
+    "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
+    "disabled:cursor-not-allowed disabled:opacity-50"
+  )}
+>
+  <option value="" className="bg-background text-foreground">
+    Select one (optional)
+  </option>
+  {projectTypeOptions.map((option) => (
+    <option key={option} value={option} className="bg-background text-foreground">
+      {option}
+    </option>
+  ))}
+</select>
                 </div>
 
                 <div className="flex flex-col gap-2">
