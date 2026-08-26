@@ -49,6 +49,7 @@ export const socialLinks: SocialLink[] = [
 
 export const heroConfig = {
   badge: "Available for opportunities",
+  image: "/images/profile.webp",
   heading: "Full Stack Developer building modern digital experiences.",
   description:
     "I build modern web applications, scalable backend systems, and clean, responsive interfaces — production-ready solutions from first commit to launch.",
