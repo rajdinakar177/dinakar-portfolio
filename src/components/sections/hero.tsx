@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { ArrowRight, Sparkles } from "lucide-react";
 
-import { heroConfig, socialLinks } from "@/config/site";
+import { heroConfig, socialLinks ,siteConfig } from "@/config/site";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -46,7 +46,9 @@ export function Hero() {
             />
           </div>
         </FadeUp>
-
+       <FadeUp>
+        <h1>{siteConfig.name}</h1>
+       </FadeUp>
         <FadeUp>
           <Badge variant="accent" className="gap-1.5 px-3 py-1">
             <Sparkles className="size-3" />
