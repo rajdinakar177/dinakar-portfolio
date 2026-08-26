@@ -38,6 +38,7 @@ export const navLinks: NavLink[] = [
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
+  { label: "Certificates", href: "#certificates" },
 ];
 
 export const socialLinks: SocialLink[] = [

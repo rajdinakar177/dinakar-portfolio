@@ -7,6 +7,7 @@ import { Projects } from "@/components/sections/projects";
 import { Services } from "@/components/sections/services";
 import { CTA } from "@/components/sections/cta";
 import { Contact } from "@/components/sections/contact";
+import { Certificates } from "@/components/sections/certificates";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <About />
       <Skills />
       <Experience />
+        <Certificates />
       <Projects />
       <Services />
       <CTA />
