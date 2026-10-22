@@ -30,7 +30,7 @@ export const siteConfig = {
    * their own public embed, not a custom API integration, so no OAuth or
    * Partner Program access is required.
    */
-  linkedinVanityName: "https://www.linkedin.com/in/kothulapuram-dinakar-raju-77025d/",
+  linkedinVanityName: "kothulapuram-dinakar-raju-77025d",
 } as const;
 
 export const navLinks: NavLink[] = [

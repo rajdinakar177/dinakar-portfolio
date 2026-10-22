@@ -21,7 +21,9 @@ export function LinkedInBadge() {
   const linkedInHref =
     socialLinks.find((link) => link.icon === "linkedin")?.href ??
     "https://linkedin.com";
-
+  const vanity = siteConfig.linkedinVanityName
+    .replace(/^https?:\/\/(www\.)?linkedin\.com\/in\//, "")
+    .replace(/\/$/, "");
   return (
     <div className="flex flex-col items-start gap-3">
       <div
@@ -31,7 +33,7 @@ export function LinkedInBadge() {
         data-locale="en_US"
         data-type="vertical"
         data-theme="dark"
-        data-vanity={siteConfig.linkedinVanityName}
+        data-vanity={vanity}
       />
 
       {/* Always-visible fallback in case the widget script doesn't load */}

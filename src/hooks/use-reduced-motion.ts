@@ -1,12 +1,20 @@
 "use client";
 
-import { useReducedMotion as useFramerReducedMotion } from "framer-motion";
+import { useSyncExternalStore } from "react";
 
-/**
- * Thin wrapper around Framer Motion's reduced-motion detection so call
- * sites don't need to import directly from "framer-motion". Returns true
- * when the user has `prefers-reduced-motion: reduce` set.
- */
+const QUERY = "(prefers-reduced-motion: reduce)";
+
+function subscribe(onChange: () => void) {
+  const mq = window.matchMedia(QUERY);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+}
+
+const getSnapshot = () => window.matchMedia(QUERY).matches;
+
+// Used on the server and during hydration, so markup matches
+const getServerSnapshot = () => false;
+
 export function useReducedMotion() {
-  return useFramerReducedMotion() ?? false;
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }
