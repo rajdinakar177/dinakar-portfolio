@@ -262,27 +262,7 @@ export function Contact() {
           )}
         </FadeUp>
 
-        <FadeUp delay={0.1} className="flex flex-col gap-4">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-sm font-medium text-muted-foreground">
-                Connect
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-col gap-4">
-              <LinkedInBadge />
-              {emailLink ? (
-                <a
-                  href={emailLink.href}
-                  className="text-nav-link inline-flex items-center gap-2"
-                >
-                  <Mail className="size-3.5" />
-                  {emailLink.href.replace("mailto:", "")}
-                </a>
-              ) : null}
-            </CardContent>
-          </Card>
-        </FadeUp>
+ 
       </div>
     </Section>
   );
